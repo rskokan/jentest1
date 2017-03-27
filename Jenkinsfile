@@ -11,8 +11,19 @@ pipeline {
 
         stage('build') {
             steps {
-                sh "gradlew build"
+                sh "gradlew clean build"
             }
         }
     }
+
+    post {
+        success {
+            echo "We are done, build SUCCESS!"
+        }
+        failure {
+            echo "Pipeline FAILED"
+        }
+    }
+
+
 }
