@@ -1,25 +1,9 @@
-#!groovy
-
 pipeline {
-    agent any
-
+    agent { any }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
                 gradlew build
-            }
-        }
-        stage('Test'){
-            steps {
-                echo 'Testing...'
-                // sh 'make check'
-                // junit 'reports/**/*.xml'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // sh 'make publish'
             }
         }
     }
